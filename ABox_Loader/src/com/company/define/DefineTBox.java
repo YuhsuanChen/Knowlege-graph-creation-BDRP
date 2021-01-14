@@ -97,6 +97,11 @@ public class DefineTBox {
         TopDepth.setDomain(Well);
         TopDepth.setRange(XSD.xdouble);
 
+        // Define Bounds
+        DatatypeProperty bounds = ontModel.createDatatypeProperty(ns + "Bounds");
+        bounds.setDomain(Formation);
+        bounds.setRange(XSD.xstring);
+
         //ontModel.listClasses().toList().forEach(System.out::println);
 
         //ontModel.listDatatypeProperties().toList().forEach(System.out::println);
