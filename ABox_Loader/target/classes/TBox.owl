@@ -1,0 +1,167 @@
+@prefix : <http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea> .
+
+<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#BelongsTo
+:BelongsTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :Member ;
+           rdfs:range :Formation .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#CharacterizedBy
+:CharacterizedBy rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Formation ;
+                 rdfs:range :Lithology .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Crosses
+:Crosses rdf:type owl:ObjectProperty ;
+         rdfs:domain :Well ;
+         rdfs:range :Formation .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#DefinedAs
+:DefinedAs rdf:type owl:ObjectProperty ,
+                    owl:IrreflexiveProperty ;
+           rdfs:domain :StudyField ;
+           rdfs:range :Definition .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#FormedDuring
+:FormedDuring rdf:type owl:ObjectProperty ;
+              rdfs:domain :Formation ;
+              rdfs:range :Period .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#LocatedIn
+:LocatedIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :Formation ;
+           rdfs:range :Geolocation .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#PartOf
+:PartOf rdf:type owl:ObjectProperty ;
+        rdfs:domain :Formation ;
+        rdfs:range :Group .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#RelaterTo
+:RelaterTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :StudyField ;
+           rdfs:range :StudyField .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#SubfieldOf
+:SubfieldOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :StudyField ;
+            rdfs:range :StudyField .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#BottomDepth
+:BottomDepth rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Well ;
+             rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Description
+:Description rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Definition ,
+                         :Lithology ,
+                         :Member ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Latitude
+:Latitude rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Geolocation ;
+          rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Longtitude
+:Longtitude rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Geolocation ;
+            rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Name
+:Name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Formation ,
+                  :Group ,
+                  :Member ,
+                  :Period ,
+                  :StudyField ,
+                  :Well ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#TopDepth
+:TopDepth rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Well ;
+          rdfs:range xsd:double .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Definition
+:Definition rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation
+:Formation rdf:type owl:Class ;
+           owl:equivalentClass wd:Q736917 .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Geolocation
+:Geolocation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Group
+:Group rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Lithology
+:Lithology rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Member
+:Member rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Period
+:Period rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#StudyField
+:StudyField rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Well
+:Well rdf:type owl:Class .
+
+
+###  http://www.wikidata.org/entity/Q7330846
+wd:Q7330846 rdf:type owl:Class .
+
+
+###  http://www.wikidata.org/entity/Q736917
+wd:Q736917 rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
