@@ -48,29 +48,39 @@ public class Question_Parsing {
                 }
 
             }
+            String Query_String="";
+            try{
+                Query_String=Query_Selection.query_selection(input_question,subject, well_num);
+            } catch (Exception e) {
+                System.out.println("We can't understand your question.");
+            }
 
-            String Query_String=Query_Selection.query_selection(input_question,subject, well_num);
+            if(!Query_String.equals("")){
+                //Initialize the connection for querying the graph
+                InputStream in = new FileInputStream(new File("Abox_output.rdf"));
+                // Create an empty in‑memory model and populate it from the graph
+                Model model = ModelFactory.createMemModelMaker().createModel("model");
+                model.read(in,null); // null base URI, since model URIs are absolute
+                in.close();
 
-            //Initialize the connection for querying the graph
-            InputStream in = new FileInputStream(new File("Abox_output.rdf"));
-            // Create an empty in‑memory model and populate it from the graph
-            Model model = ModelFactory.createMemModelMaker().createModel("model");
-            model.read(in,null); // null base URI, since model URIs are absolute
-            in.close();
+                org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
 
-            org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
+                //execute the query
+                Query query = QueryFactory.create(Query_String);
 
-            //execute the query
-            Query query = QueryFactory.create(Query_String);
+                // Execute the query and obtain results
+                QueryExecution qe = QueryExecutionFactory.create(query, model);
+                ResultSet results = qe.execSelect();
 
-            // Execute the query and obtain results
-            QueryExecution qe = QueryExecutionFactory.create(query, model);
-            ResultSet results = qe.execSelect();
+                // Output query results
+                ResultSetFormatter.out(System.out, results, query);
 
-            // Output query results
-            ResultSetFormatter.out(System.out, results, query);
+                qe.close(); // Important ‑ free up resources used running the query
 
-            qe.close(); // Important ‑ free up resources used running the query
+            }else{
+                System.out.println("We can't understand your question");
+            }
+
 
 
         }

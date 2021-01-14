@@ -15,12 +15,24 @@ public class Main {
 //        DefineABox.run();
 
         //Asking Question
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter a question");
-        String question = myObj.nextLine();  // Read user input
+        String question="";
+        String go_on="";
 
-        question=question.toLowerCase(); //turn string ot lowercase, easy to compare
-        Question_Parsing.question_parsing(question);
+        while(!go_on.equals("n")){
+            System.out.println("Enter a question");
+            Scanner myObj = new Scanner(System.in);
+            question = myObj.nextLine();
+            question=question.toLowerCase(); //turn string ot lowercase, easy to compare
+            Question_Parsing.question_parsing(question);
+            System.out.println("continue? (y/n)");
+            Scanner Continue = new Scanner(System.in);
+            go_on= Continue.nextLine();
+
+        }
+
+          // Read user input
+
+
 
 
         }
