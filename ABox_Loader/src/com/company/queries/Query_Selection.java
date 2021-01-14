@@ -1,45 +1,49 @@
 package com.company.queries;
 
 public class Query_Selection {
-    public static String query_selection(String input_question) {
+    public static String query_selection(String input_question, String subject) {
         String QueryString="";
 
         if(input_question.contains("age")||input_question.contains("period")){
-            //new query--Period
+            String formation_uri="<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/"+subject+">";
+            System.out.println(formation_uri);
             QueryString ="PREFIX stratig:<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#>"+
                     "SELECT ?name "+
-                    "WHERE { <http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/ekofisk_formation> stratig:FormedDuring ?period . " +
+                    "WHERE { "+formation_uri+" stratig:FormedDuring ?period . " +
                     "?period stratig:Name ?name . }";
 
         }
         else if(input_question.contains("group")){
-            //new query--Group
+             String formation_uri="<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/"+subject+">";
              QueryString ="PREFIX stratig:<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#>"+
                     "SELECT ?name "+
-                    "WHERE { <http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/ekofisk_formation> stratig:PartOf ?group .\n" +
+                    "WHERE { "+formation_uri+" stratig:PartOf ?group .\n" +
                     "?group stratig:Name ?name . }";
 
         }
         else if(input_question.contains("well")){
-            //new query--well
+
+             String formation_uri="<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/"+subject+">";
              QueryString ="PREFIX stratig:<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#>"+
-                     "SELECT ?well "+
-                     "WHERE { ?well stratig:Crosses <http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/ekofisk_formation> .  }";
-                     //"?well stratig:Name <http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/ekofisk_formation> .  }";
+                     "SELECT ?wellnum "+
+                     "WHERE { ?well stratig:Crosses "+formation_uri+" . "+
+                     "?well stratig:Name ?wellnum .  }";
         }
         else if(input_question.contains("lithology")){
-            //new query--lithology
+
+            String formation_uri="<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Lithology/"+subject+">";
             QueryString ="PREFIX stratig:<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#>"+
                     "SELECT ?name "+
-                    "WHERE { <http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/ekofisk_formation> stratig:CharacterizedBy ?lithology .\n"+
-                    "?lithology stratig:Name ?name . }";
-            //"?well stratig:Name <http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/ekofisk_formation> .  }";
+                    "WHERE { "+formation_uri+" stratig:Name ?name . }";
+
+
         }
         else if(input_question.contains("member")) {
-            //new query--member
+            //ex: fruholmen
+            String formation_uri="<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/"+subject+">";
             QueryString = "PREFIX stratig:<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#>" +
                     "SELECT ?member " +
-                    "WHERE { ?member stratig:BelongsTo <http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/ekofisk_formation> .  }";
+                    "WHERE { ?member stratig:BelongsTo "+formation_uri+" .  }";
         }
 
 

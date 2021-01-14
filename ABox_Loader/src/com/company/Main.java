@@ -1,16 +1,16 @@
 package com.company;
 
+import com.company.queries.Query_Selection;
 import com.company.utils.CSV;
 import com.company.utils.Utils;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import com.company.queries.Query_Selection;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,24 +35,28 @@ public class Main {
 
         String formation_basic = "/Users/alice/Desktop/ABox_Loader/src/Test_Abox.csv";
         List<String[]> lines = CSV.read(formation_basic, ",/t,");
-        List<String> subject_list=new ArrayList<>();
-
-        for (String[] line : lines) {
-            String formation_name = line[3];
-            formation_name=Utils.cleanURI(formation_name);
-            subject_list.add(formation_name);
-        }
-        System.out.println(subject_list);
-
-
 
         if(question.contains("stratigraphy")){
             System.out.println("Stratigraphy is a geology study involved the study of the rock layer(strata). It includes three main subfields, lithostratigraphy, biostratigraphy and chronostratigraphy.");
         }
         else{
+            String subject="";
+            //List<String> subject_list=new ArrayList<>();
+
+            for (String[] line : lines) {
+                String formation_name = line[3];
+                formation_name= Utils.cleanURI(formation_name);
+                if(question.contains(formation_name.split("_")[0])){
+                    subject=formation_name;
+                    break;
+                }
 
 
-            String Query_String=Query_Selection.query_selection(question);
+
+            }
+
+
+            String Query_String=Query_Selection.query_selection(question,subject);
 
             //Initialize the connection for querying the graph
             InputStream in = new FileInputStream(new File("Abox_output.rdf"));
