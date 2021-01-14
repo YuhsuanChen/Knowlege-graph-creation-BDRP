@@ -112,7 +112,7 @@ public class DefineABox {
             }
             else if(formation_name.contains("member")||formation_name.contains("Member")){
                 Individual member = memberClass.createIndividual(ns + "Member/" + Utils.cleanURI(formation_name));
-                Literal member_content_string = ontModel.createTypedLiteral(group_content, XSDDatatype.XSDstring);
+                Literal member_content_string = ontModel.createTypedLiteral(formation_name, XSDDatatype.XSDstring);
                 ontModel.add(member, Name_prop, member_content_string);
                 if(group_content.contains("formation")){
                     Individual formation = formationClass.createIndividual(ns + "Formation/" + Utils.cleanURI(group_content));
