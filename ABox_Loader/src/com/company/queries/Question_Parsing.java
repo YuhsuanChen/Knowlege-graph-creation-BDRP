@@ -14,7 +14,9 @@ import java.util.List;
 
 public class Question_Parsing {
 
+
     public static String question_parsing(String input_question) throws IOException {
+        org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
         //Check the list of formation/group/member name
         String formation_basic = "src/Test_Abox.csv";
         String well_info = "src/well-location.csv";
@@ -58,12 +60,13 @@ public class Question_Parsing {
             if(!Query_String.equals("")){
                 //Initialize the connection for querying the graph
                 InputStream in = new FileInputStream(new File("Abox_output.rdf"));
+
                 // Create an empty in‑memory model and populate it from the graph
                 Model model = ModelFactory.createMemModelMaker().createModel("model");
                 model.read(in,null); // null base URI, since model URIs are absolute
                 in.close();
 
-                org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
+
 
                 //execute the query
                 Query query = QueryFactory.create(Query_String);

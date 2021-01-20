@@ -59,7 +59,7 @@ public class Query_Selection {
                         "WHERE { ?member stratig:BelongsTo "+formation_uri+" ."+
                         "?member stratig:Name ?name . }";
             }
-            else if(input_question.contains("where")) {
+            else if(input_question.contains("where")||input_question.contains("location")) {
 
                 String formation_uri="<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/"+subject+">";
                 QueryString = "PREFIX stratig:<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#>" +

@@ -11,8 +11,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
-//        DefineTBox.run();
-//        DefineABox.run();
+//        DefineTBox.run(); //only run when want to generate a new rdf
+//        DefineABox.run(); //only run when want to generate a new rdf
 
         //Asking Question
         String question="";
