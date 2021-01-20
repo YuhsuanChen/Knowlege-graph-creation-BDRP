@@ -1,1 +1,1 @@
-# Knowlege-graph-creation-BDRP
+# Knowlege graph creation and interaction with Java Jena
