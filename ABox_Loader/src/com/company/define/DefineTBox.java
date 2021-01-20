@@ -9,7 +9,6 @@ public class DefineTBox {
 
     public static void run() {
 
-
         final String ns = "http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#";
 
         OntClass Definition = ontModel.createClass(ns + "Definition");
@@ -40,12 +39,12 @@ public class DefineTBox {
         LocatedIn.addRange(Geolocation);
 
 
-//        ontModel.read(ns + "Well");
+
         ObjectProperty Crosses = ontModel.createObjectProperty(ns + "Crosses");//done
         Crosses.addDomain(Well);
         Crosses.addRange(Formation);
 
-//        ontModel.read(ns + "StudyField");
+
         ObjectProperty DefinedAs = ontModel.createObjectProperty(ns + "DefinedAs");
         DefinedAs.addDomain(StudyField);
         DefinedAs.addRange(Definition);
@@ -56,7 +55,7 @@ public class DefineTBox {
         RelaterTo.addDomain(StudyField);
         RelaterTo.addRange(StudyField);
 
-//        ontModel.read(ns + "Member");
+
         ObjectProperty BelongsTo = ontModel.createObjectProperty(ns + "BelongsTo");
         BelongsTo.addDomain(Member);
         BelongsTo.addRange(Formation);
@@ -102,9 +101,6 @@ public class DefineTBox {
         bounds.setDomain(Formation);
         bounds.setRange(XSD.xstring);
 
-        //ontModel.listClasses().toList().forEach(System.out::println);
-
-        //ontModel.listDatatypeProperties().toList().forEach(System.out::println);
     }
 
 
