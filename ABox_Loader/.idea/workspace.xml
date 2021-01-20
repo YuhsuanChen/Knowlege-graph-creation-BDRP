@@ -20,16 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="032fb2dd-7706-4ff3-b456-d7176caafd36" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_14_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_14_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ABox_Loader.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ABox_Loader.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/queries/Query_Selection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/queries/Query_Selection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/queries/Question_Parsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/queries/Question_Parsing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/queries/Query_Selection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/queries/Query_Selection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/queries/Question_Parsing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/queries/Question_Parsing.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +154,7 @@
       <workItem from="1610322073315" duration="16998000" />
       <workItem from="1610645691088" duration="517000" />
       <workItem from="1610652551587" duration="3437000" />
-      <workItem from="1610754331294" duration="6177000" />
+      <workItem from="1610754331294" duration="7962000" />
     </task>
     <servers />
   </component>
