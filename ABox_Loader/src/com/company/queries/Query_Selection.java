@@ -65,6 +65,21 @@ public class Query_Selection {
                 QueryString = "PREFIX stratig:<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#>" +
                         "SELECT ?boundary " +
                         "WHERE { "+formation_uri+" stratig:Bounds ?boundary . }";
+            } else if (input_question.contains("summary") || input_question.contains("best")) {
+                String formation_uri = "<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#Formation/" + subject + ">";
+                QueryString = "PREFIX stratig:<http://www.semanticweb.org/user/ontologies/2020/11/Stratigraphy_in_North_Sea#>" +
+                        "SELECT ?res " +
+                        "WHERE {" + formation_uri + " stratig:FormedDuring ?period ." +
+                        "?period stratig:Name ?period_name ." +
+                        formation_uri + "stratig:Bounds ?boundary ." +
+                        formation_uri + "stratig:PartOf ?group ." +
+                        "?group stratig:Name ?group_name ." +
+                        formation_uri + "stratig:CharacterizedBy ?lithology ." +
+                        "?lithology stratig:Name ?lithology_name . " +
+                        "BIND( concat(\"The formation was originated in \", " +
+                        "concat(?period_name, concat(\" period and belongs to \", " +
+                        "concat(?group_name, concat(\". \", concat(?boundary, " +
+                        "concat(\" and lithology is\", ?lithology_name))))))) AS ?res )}";
             }
 
         }
